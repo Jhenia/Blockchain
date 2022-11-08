@@ -74,7 +74,7 @@ $('.modal__close').on('click', (e) => {
   }, 500);
 });
 $(document).ready(function() {
-	let show = document.querySelector(".hover_form");
+	// let show = document.querySelector(".hover_form");
 	//E-mail Ajax Send
 	$("form").submit(function() { //Change
 		var th = $(this);
@@ -84,7 +84,7 @@ $(document).ready(function() {
 			data: th.serialize()
 		}).done(function() {
       alert("2222");
-			show.classList.toggle("show_block");
+			// show.classList.toggle("show_block");
 			setTimeout(function() {
 				// Done Functions
 				th.trigger("reset");
