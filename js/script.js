@@ -79,9 +79,7 @@ $(document).ready(function() {
 	$("form").submit(function() { //Change
 		var th = $(this);
 		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
+		
 		}).done(function() {
       alert("2222");
 			// show.classList.toggle("show_block");
