@@ -16,9 +16,14 @@ $('.button').click(function () {
   $('#modal-container').removeAttr('class').addClass(buttonId);
   $('#modal-container').removeClass('hide');
   $('.modal-background').addClass('opened');
+  $('body').removeClass('overlock');
 
 })
-
+$('.showblock_background').click(function () {
+  $('body').removeClass('overlock');
+  $('.showblock_background').removeClass('Show_bg');
+  $('.showblock').removeClass('Show');
+});
 $('.modal-background').click(function () {
   $('#modal-container').addClass('out');
   $('body').removeClass('modal-active');
@@ -63,34 +68,45 @@ $('.modal-background2').on('click', (e) => {
   }, 500);
 });
 $('.modal__close').click(function () {
+  $('.showblock').removeClass('Show');
   $('#modal-container2').addClass('out');
   $('body').removeClass('modal-active');
   $('.modal-background2').removeClass('opened');
   $('body').removeClass('overlock');
 });
 $('.modal__close').on('click', (e) => {
+  $('.showblock').removeClass('Show');
+  $('.showblock_background').removeClass('Show_bg');
+
   setTimeout(() => {
       $('#modal-container2').addClass('hide');
   }, 500);
 });
-$(document).ready(function() {
-	// let show = document.querySelector(".hover_form");
-	//E-mail Ajax Send
-	$("form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-		
-		}).done(function() {
-      alert("2222");
-			// show.classList.toggle("show_block");
-			setTimeout(function() {
-				// Done Functions
-				th.trigger("reset");
-			}, 1000);
-		});
-		return false;
-	});
 
+$('form').submit(function(e) {
+  let show = document.querySelector(".showblock");
+  let showbg = document.querySelector(".showblock_background");
+  var empty = $(this).parent().find("input").filter(function() {
+    return this.value === "";
+  });
+  if (!empty.length) {
+    show.classList.toggle("Show");
+    $('#modal-container').addClass('hide');
+    $('#modal-container2').addClass('hide');
+    $('.modal-background2').removeClass('opened');
+    showbg.classList.toggle("Show_bg");
+    $('.modal-background').removeClass('opened');
+ 
+    
+   
+    $('body').addClass('overlock');
+    //Если все графы заполнены, то показываем popup
+
+   
+    //очищаем все данные текстовых полей, кроме кнопок
+    $('form input').not(':button, :submit').val('');
+  }
+  e.preventDefault();
 });
 
 
