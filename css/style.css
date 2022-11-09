@@ -1444,6 +1444,10 @@ a {
 }
 
 @media only screen and (max-width: 767px) and (min-width: 320px) {
+  .form__item input {
+    padding-left: 0 !important;
+  }
+
   .modal__close img {
     margin-top: 0 !important;
   }
