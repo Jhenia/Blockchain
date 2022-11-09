@@ -77,7 +77,6 @@ $('.modal__close').click(function () {
 $('.modal__close').on('click', (e) => {
   $('.showblock').removeClass('Show');
   $('.showblock_background').removeClass('Show_bg');
-
   setTimeout(() => {
       $('#modal-container2').addClass('hide');
   }, 500);
