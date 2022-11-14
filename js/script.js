@@ -108,6 +108,30 @@ $('form').submit(function(e) {
   e.preventDefault();
 });
 
+// lang select
+$('.language-select').click(function(){
+  $(this).toggleClass('open');
+  $('.header__lang').toggleClass('opens');
+  })
+  
+  $('.language-select li').click(function(){
+  var setLang = $('.language-select').data('location'),
+      dataLangSelect = $(this).data('lang')
+        $('.language-select').data('location', dataLangSelect);
+        $('.language-select li').removeClass('active');
+        $(this).toggleClass('active');
+  })
+
+// close lang block*
+  document.addEventListener('click', function(event) {
+    var e = document.querySelector('.language-select');
+    if (!e.contains(event.target)){
+      $('.header__lang').removeClass('opens');
+      $('.language-select').removeClass('open');
+    }         
+  });
+
+
 
 
 
